@@ -143,10 +143,7 @@ Keep `SKILL.md` concise. Prefer linking to references instead of embedding long 
 Run the official validator:
 
 ```bash
-PYTHONPATH=/private/tmp/codex-pyyaml \
-  /Users/rohinpatel/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
-  /Users/rohinpatel/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
-  /Users/rohinpatel/Development/myprojects/pragmatic-dev-skills/pragmatic-developer
+python3 /path/to/skill-creator/scripts/quick_validate.py .
 ```
 
 Expected output:
@@ -158,8 +155,7 @@ Skill is valid!
 If `PyYAML` is missing, install it into a temporary directory:
 
 ```bash
-/Users/rohinpatel/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
-  -m pip install PyYAML --target /private/tmp/codex-pyyaml
+python3 -m pip install PyYAML
 ```
 
 ## Test The Onboarding Script
@@ -167,24 +163,24 @@ If `PyYAML` is missing, install it into a temporary directory:
 Create a temporary target and run onboarding:
 
 ```bash
-mkdir -p /private/tmp/pragmatic-dev-skill-test
-./scripts/onboard_project.py /private/tmp/pragmatic-dev-skill-test --agent both --mode existing
+mkdir -p tmp/pragmatic-dev-skill-test
+./scripts/onboard_project.py tmp/pragmatic-dev-skill-test --agent both --mode existing
 ```
 
 Check generated files:
 
 ```bash
-find /private/tmp/pragmatic-dev-skill-test -maxdepth 3 -type f -print
+find tmp/pragmatic-dev-skill-test -maxdepth 3 -type f -print
 ```
 
 Expected files include:
 
 ```text
-/private/tmp/pragmatic-dev-skill-test/.codex/project-profile.md
-/private/tmp/pragmatic-dev-skill-test/.codex/specs/system-overview.md
-/private/tmp/pragmatic-dev-skill-test/.codex/specs/_feature-template.md
-/private/tmp/pragmatic-dev-skill-test/AGENTS.md
-/private/tmp/pragmatic-dev-skill-test/CLAUDE.md
+tmp/pragmatic-dev-skill-test/.codex/project-profile.md
+tmp/pragmatic-dev-skill-test/.codex/specs/system-overview.md
+tmp/pragmatic-dev-skill-test/.codex/specs/_feature-template.md
+tmp/pragmatic-dev-skill-test/AGENTS.md
+tmp/pragmatic-dev-skill-test/CLAUDE.md
 ```
 
 ## Git Workflow
