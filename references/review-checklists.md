@@ -7,6 +7,7 @@ Use these as prompts. Do not paste the whole checklist into user-facing response
 - What behavior is the user asking to add, remove, preserve, or explain?
 - Is this an existing repository or a greenfield project?
 - Is there a project profile? If yes, what choices or preferences apply?
+- Is there a relevant spec? If yes, what behavior, acceptance criteria, contracts, or tests apply?
 - Which files, tests, and boundaries already own this behavior?
 - What domain words appear in code, tests, docs, tickets, or data?
 - Is there existing style for errors, validation, persistence, logging, async work, and tests?
@@ -20,6 +21,19 @@ Use these as prompts. Do not paste the whole checklist into user-facing response
 - Should that choice be recorded as durable, provisional, rejected, superseded, or open?
 - Does the current recommendation conflict with a recorded choice?
 - Does the final response need to mention a profile update?
+
+## Spec Review
+
+- Does `.codex/specs/`, `.claude/specs/`, or equivalent spec directory exist?
+- Is there a system overview spec or relevant feature spec?
+- What should the system or feature do?
+- What are the user flows?
+- What are the acceptance criteria?
+- What are the domain rules and edge cases?
+- What API, contract, or data behavior must hold?
+- What tests prove the feature is done?
+- Are unknowns marked as `TBD`, `Open question`, or `Assumption` instead of being invented?
+- Does the final response need to mention a spec update?
 
 ## Domain Model Review
 
@@ -72,7 +86,7 @@ Use these as prompts. Do not paste the whole checklist into user-facing response
 
 - State the concrete change.
 - State why it fits the domain/design.
-- State whether the change follows or updates the project profile.
+- State whether the change follows or updates the project profile and relevant spec.
 - State tests or checks run.
 - State tests not run or residual risks.
 - Keep follow-up suggestions limited to work that directly builds on the change.

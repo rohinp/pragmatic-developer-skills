@@ -1,6 +1,6 @@
 # Source Map
 
-This skill was initialized from the PDFs in the repository root. The notes below intentionally paraphrase durable practices and outline topics instead of copying book text.
+This skill was initialized from PDFs that were available in the parent workspace. The PDFs are source material only; they do not need to be part of the skill package. The notes below intentionally paraphrase durable practices and outline topics instead of copying book text.
 
 ## Local Resources
 
