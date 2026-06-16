@@ -21,6 +21,51 @@
 - Keep comments for non-obvious context, tradeoffs, constraints, or links to domain decisions. Do not comment what the code already says.
 - Make errors explicit and actionable. Preserve causes when wrapping exceptions.
 
+## SOLID Principles
+
+Use SOLID as a diagnostic and refactoring vocabulary. Do not apply it mechanically or create abstractions before the code has a real variation point.
+
+### Single Responsibility Principle
+
+- A module, class, or function should have one primary reason to change.
+- Split responsibilities when changes for unrelated reasons are tangled together, tests require excessive setup, or names become vague.
+- Keep cohesive responsibilities together; do not split so far that behavior becomes hard to follow.
+
+### Open-Closed Principle
+
+- Prefer designs where common new behavior can be added through extension rather than repeatedly editing stable code.
+- Apply this when variation is real or likely from current requirements, not merely imagined.
+- Good candidates: business policies, strategies, validators, serializers, handlers, or adapters with multiple known implementations.
+- Avoid speculative plugin systems or inheritance trees just to satisfy OCP.
+
+### Liskov Substitution Principle
+
+- Subtypes must honor the behavioral contract of their base type or interface.
+- Watch for subclasses that throw unsupported-operation errors, weaken invariants, strengthen preconditions, change return meanings, or surprise callers.
+- If substitution is not valid, prefer composition, separate interfaces, or explicit domain concepts.
+
+### Interface Segregation Principle
+
+- Clients should depend only on the behavior they use.
+- Split broad interfaces when implementations contain irrelevant methods, callers need only narrow capabilities, or tests require fake methods unrelated to the behavior under test.
+- Avoid tiny one-method interfaces everywhere unless they reduce real coupling in the local codebase.
+
+### Dependency Inversion Principle
+
+- High-level policy should not depend directly on low-level details when that coupling makes testing, replacement, or domain clarity harder.
+- Depend on abstractions at boundaries such as persistence, external services, clocks, messaging, payment providers, and file systems.
+- Keep abstractions owned by the domain/application side when possible; do not let infrastructure define the core model.
+- For simple stable dependencies, direct use can be more pragmatic than an unnecessary wrapper.
+
+## YAGNI And KISS
+
+- YAGNI: implement functionality when it is actually needed, not because it might be needed later.
+- KISS: prefer the simplest design that satisfies the current behavior, constraints, and maintainability needs.
+- Use these with tests and refactoring. Simple today should remain easy to improve tomorrow.
+- Remove or defer unused extension points, generic frameworks, broad configuration, premature caching, unused interfaces, and speculative data model fields.
+- Do not use YAGNI to ignore clear near-term requirements, public contracts, migrations, security, data compatibility, or expensive-to-change decisions.
+- Do not use KISS as an excuse for simplistic code that hides domain rules or spreads duplication across the system.
+
 ## Test-Driven Development
 
 - Use red-green-refactor as a design rhythm, not a ceremony.

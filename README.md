@@ -28,14 +28,14 @@ This repository contains the `pragmatic-developer` skill. The skill guides an AI
 - Spec placeholders at `.codex/specs/` by default.
 - Optional Codex and Claude guidance files in target projects.
 - Custom user profile import into the project profile.
-- Engineering guidance for DDD, TDD, refactoring, clean code, design patterns, algorithms, and code review.
+- Engineering guidance for DDD, SOLID, YAGNI, KISS, TDD, refactoring, clean code, design patterns, algorithms, and code review.
 
 ## Onboard A Target Project
 
 From this repository:
 
 ```bash
-./scripts/onboard_project.py /path/to/project --agent both --mode existing
+  ./scripts/onboard_project.py /path/to/project --agent both --mode existing
 ```
 
 This creates or updates:

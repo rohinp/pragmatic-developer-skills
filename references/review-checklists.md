@@ -55,6 +55,17 @@ Use these as prompts. Do not paste the whole checklist into user-facing response
 - Are public APIs, database schemas, or contracts changed deliberately?
 - Can this code be safely modified in six months?
 
+## SOLID, YAGNI, And KISS Review
+
+- SRP: Does this unit have one coherent reason to change?
+- OCP: Is the code repeatedly edited for known variations that should be extensible?
+- LSP: Can implementations be substituted without surprising callers or weakening contracts?
+- ISP: Are clients forced to depend on methods or capabilities they do not use?
+- DIP: Are high-level policies coupled to low-level details in a way that hurts testing or replacement?
+- YAGNI: Is this adding functionality, extension points, configuration, or abstractions before they are needed?
+- KISS: Is there a simpler design that satisfies the current behavior and constraints?
+- Pragmatism check: Would applying a principle here reduce real risk, or just add ceremony?
+
 ## TDD And Test Review
 
 - Is there a failing test or characterization test for the behavior?

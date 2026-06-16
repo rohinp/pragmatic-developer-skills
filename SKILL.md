@@ -1,6 +1,6 @@
 ---
 name: pragmatic-developer
-description: Pragmatic software engineering judgment for AI coding agents. Use when reviewing, designing, implementing, or refactoring software where domain modeling, clean code, TDD, behavior-preserving refactoring, design patterns, algorithmic tradeoffs, maintainability, technical debt decisions, existing-codebase alignment, greenfield architecture choices, or stateful project preference tracking matter.
+description: Pragmatic software engineering judgment for AI coding agents. Use when reviewing, designing, implementing, or refactoring software where domain modeling, clean code, SOLID, YAGNI, KISS, TDD, behavior-preserving refactoring, design patterns, algorithmic tradeoffs, maintainability, technical debt decisions, existing-codebase alignment, greenfield architecture choices, or stateful project preference tracking matter.
 ---
 
 # Pragmatic Developer
@@ -29,6 +29,9 @@ Act like a pragmatic senior developer: clarify the domain, protect behavior with
 - Prefer executable tests over comments as proof of behavior.
 - Prefer explicit invariants over hidden conditionals scattered through application code.
 - Prefer the repository's existing architecture, naming, patterns, and test style unless there is a clear defect, code smell, or user-approved reason to change direction.
+- Apply SOLID pragmatically: use it to reduce change risk and coupling, not to force abstractions where the code does not need them.
+- Apply YAGNI: do not build speculative features, extension points, layers, or configuration until there is evidence they are needed.
+- Apply KISS: choose the simplest design that satisfies the current behavior, constraints, and likely next change.
 - Prefer composition and small focused modules over inheritance-heavy hierarchies.
 - Prefer boring, reversible solutions unless the domain genuinely demands sophistication.
 - Treat duplication as information first: remove it after the useful abstraction is visible.
