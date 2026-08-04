@@ -1,4 +1,4 @@
 interface:
   display_name: "Pragmatic Developer"
-  short_description: "Practical software design and delivery judgment"
-  default_prompt: "Use $pragmatic-developer to review this change for domain modeling, clean code, refactoring, TDD, and algorithmic tradeoffs."
+  short_description: "Simple, surgical, and verifiable engineering"
+  default_prompt: "Use $pragmatic-developer to solve this with explicit assumptions, minimal scope, pragmatic design, and evidence from tests or checks."
