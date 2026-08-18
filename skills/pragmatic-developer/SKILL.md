@@ -38,6 +38,7 @@ Produce the smallest correct change that fits the codebase and can be verified.
 - Protect existing behavior with tests; add characterization tests before risky refactors.
 - Prefer a failing test that demonstrates a bug or requirement, then make it pass.
 - Run the narrowest meaningful checks first and expand verification according to the change's blast radius.
+- When correctness risk is unusually high or ordinary tests leave an important uncertainty, explain the risk and recommend proportionate high-confidence verification. Do not silently add specialized verification tools, dependencies, models, or scope; proceed after the user agrees or when repository instructions explicitly require them.
 - Continue until the success condition is met or report the exact blocker.
 
 ## Engineering Workflow
