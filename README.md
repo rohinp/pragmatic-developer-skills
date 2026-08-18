@@ -13,6 +13,11 @@ High-confidence verification is not the default for every change. The user may r
 .
 ├── docs/
 │   └── INSTALLATION.md
+├── example/
+│   ├── README.md
+│   ├── semantic-caching-python/
+│   ├── semantic-caching-scala/
+│   └── semantic-caching-kotlin/
 ├── README.md
 ├── scripts/
 │   └── install.sh
@@ -75,6 +80,12 @@ Install only the normal engineering skill with:
 ```
 
 See [Installation and onboarding](docs/INSTALLATION.md) for project-scoped installation, discovery paths, invocation syntax, verification, and client-specific guidance.
+
+## Example Project
+
+The [semantic and LLM request caching example](example/README.md) implements a deterministic graph-backed semantic cache in Python, Scala 3, and Kotlin. Its graph-caching concept is inspired by and credited to Manoj's HackerNoon article, [“Graph Theory-Based Semantic Caching: Scaling LLM Applications”](https://hackernoon.com/graph-theory-based-semantic-caching-scaling-llm-applications). It demonstrates how the pragmatic skill keeps infrastructure mocked and scope small while the verification skill selects contracts, domain types, graph invariants, property-based testing, and bounded exhaustive testing for concrete risks.
+
+The example also records a defect found during implementation: validating a new embedding after mutating the graph could leave a partially inserted node. Candidate similarities are now validated before insertion in all three languages. This is evidence of a practical benefit, not a controlled with-versus-without-skill evaluation; that broader evaluation remains future work.
 
 ## Development
 
