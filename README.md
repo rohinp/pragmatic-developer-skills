@@ -68,15 +68,17 @@ Clone the repository and run the installer for your coding agent:
 ```bash
 git clone https://github.com/rohinp/pragmatic-developer-skills.git
 cd pragmatic-developer-skills
-./scripts/install.sh --agent codex
+./scripts/install.sh --agent codex --scope user
 ```
 
-Replace `codex` with `claude`, `copilot`, `gemini`, or `generic`. The command installs both skills at user scope and refuses to overwrite an existing installation.
+Replace `codex` with `claude`, `copilot`, `gemini`, or `generic`. The command installs both skills and refuses to overwrite an existing installation.
+
+> **Installation scope:** The example above explicitly uses `--scope user`. For Codex, this installs into `${CODEX_HOME:-$HOME/.codex}/skills`, making the skills available across projects. To keep the skills in one repository instead, run the installer from that repository root with `--agent codex --scope project`; it installs into `.agents/skills`. Use `--project-dir /path/to/repository` when running it from elsewhere.
 
 Install only the normal engineering skill with:
 
 ```bash
-./scripts/install.sh --agent codex --skill pragmatic-developer
+./scripts/install.sh --agent codex --scope user --skill pragmatic-developer
 ```
 
 See [Installation and onboarding](docs/INSTALLATION.md) for project-scoped installation, discovery paths, invocation syntax, verification, and client-specific guidance.

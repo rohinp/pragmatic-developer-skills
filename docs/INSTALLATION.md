@@ -30,6 +30,7 @@ These commands install both skills at user scope. Install only one with:
 For a repository-scoped installation:
 
 ```bash
+./scripts/install.sh --agent codex --scope project --project-dir /path/to/project
 ./scripts/install.sh --agent claude --scope project --project-dir /path/to/project
 ./scripts/install.sh --agent copilot --scope project --project-dir /path/to/project
 ./scripts/install.sh --agent gemini --scope project --project-dir /path/to/project
@@ -42,7 +43,7 @@ The installer refuses to overwrite an existing skill. Review and remove or move 
 
 | Client | Personal location | Project location | Explicit use or discovery check |
 |---|---|---|---|
-| Codex | `${CODEX_HOME:-$HOME/.codex}/skills/<name>` | Use personal scope unless your Codex environment documents another location | `Use $pragmatic-developer ...` |
+| Codex | `${CODEX_HOME:-$HOME/.codex}/skills/<name>` | `.agents/skills/<name>` | `Use $pragmatic-developer ...`; CLI and IDE also support `/skills` or `$` mentions |
 | Claude Code | `~/.claude/skills/<name>` | `.claude/skills/<name>` | `/pragmatic-developer` or `/high-confidence-verification` |
 | GitHub Copilot | `~/.copilot/skills/<name>` or `~/.agents/skills/<name>` | `.github/skills/<name>`, `.claude/skills/<name>`, or `.agents/skills/<name>` | Ask Copilot to use the named skill; Copilot CLI supports `/skills reload` |
 | Gemini CLI | `~/.gemini/skills/<name>` or `~/.agents/skills/<name>` | `.gemini/skills/<name>` or `.agents/skills/<name>` | `/skills list`, then request the named skill |
@@ -55,10 +56,18 @@ The installer refuses to overwrite an existing skill. Review and remove or move 
 Install both skills:
 
 ```bash
-./scripts/install.sh --agent codex
+./scripts/install.sh --agent codex --scope user
 ```
 
-Restart or reload Codex if the newly created top-level skill directories are not discovered in the current session. Invoke explicitly with:
+For skills available only in one repository, run this from its root:
+
+```bash
+./scripts/install.sh --agent codex --scope project
+```
+
+This installs into `.agents/skills`. If you run the installer from elsewhere, identify the repository explicitly with `--project-dir /path/to/project`. Codex scans `.agents/skills` from its current working directory through the repository root.
+
+Restart Codex if newly installed skills are not discovered in the current session. Invoke explicitly with:
 
 ```text
 Use $pragmatic-developer to implement this change with the smallest compatible design.
@@ -180,4 +189,3 @@ Use high-confidence-verification to assess whether this code warrants stronger v
 - [Claude Code skills](https://code.claude.com/docs/en/slash-commands)
 - [GitHub Copilot agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
 - [Gemini CLI agent skills](https://geminicli.com/docs/cli/using-agent-skills/)
-

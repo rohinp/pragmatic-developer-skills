@@ -124,12 +124,6 @@ if [ -z "$destination" ]; then
         ;;
     esac
   else
-    if [ "$agent" = "codex" ]; then
-      echo "Project-scoped Codex skill discovery is not configured by this installer." >&2
-      echo "Use --scope user, or pass a verified directory with --destination." >&2
-      exit 2
-    fi
-
     if [ -z "$project_dir" ]; then
       project_dir=$(pwd)
     fi
@@ -138,7 +132,7 @@ if [ -z "$destination" ]; then
       claude)
         destination="$project_dir/.claude/skills"
         ;;
-      copilot|gemini|generic)
+      codex|copilot|gemini|generic)
         destination="$project_dir/.agents/skills"
         ;;
     esac
@@ -167,4 +161,3 @@ for skill_name in $skill_names; do
   cp -R "$repository_dir/skills/$skill_name" "$destination/$skill_name"
   echo "Installed $skill_name -> $destination/$skill_name"
 done
-
